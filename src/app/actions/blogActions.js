@@ -12,12 +12,19 @@ import {
   CLEAR_CURRENT
 } from './types';
 
-// Set loading to true
 export const setLoading = () => {
   return {
     type: SET_LOADING
   };
 };
+
+export const clearPosts = () => async dispatch => {
+  dispatch({ type: CLEAR_POSTS })
+}
+
+export const clearCurrent = () => async dispatch => {
+  dispatch({ type: CLEAR_CURRENT })
+}
 
 export const getPosts = () => async dispatch => {
   try {
@@ -124,10 +131,4 @@ export const updatePost = (id, data) => async dispatch => {
   }
 };
 
-export const clearPosts = () => async dispatch => {
-  dispatch({ type: CLEAR_POSTS })
-}
 
-export const clearCurrent = () => async dispatch => {
-  dispatch({ type: CLEAR_CURRENT })
-}
