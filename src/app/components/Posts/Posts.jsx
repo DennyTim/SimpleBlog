@@ -1,9 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getPosts, clearPosts } from '../../actions/blogActions';
 import PostItem from '../PostsItem';
-import FormPost from '../FormPost';
+import FormPost from '../../containers/FormPostContainer';
 import Spinner from '../Layout/Spinner.jsx';
 
 const Posts = ({ posts, loading, getItems, clear }) => {
@@ -56,12 +54,4 @@ Posts.propTypes = {
   loading: PropTypes.bool.isRequired
 };
 
-const mapStateToProps = state => ({
-  posts: state.posts.posts,
-  loading: state.posts.loading
-});
-
-export default connect(
-  mapStateToProps,
-  { getItems: getPosts, clear: clearPosts }
-)(Posts);
+export default Posts;

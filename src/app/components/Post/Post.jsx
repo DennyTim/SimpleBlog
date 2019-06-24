@@ -1,16 +1,10 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import {
-  getPostsWithComments,
-  addCommentForPost,
-  clearCurrent
-} from '../../actions/blogActions';
 import PostItem from '../PostsItem';
 import Spinner from '../Layout/Spinner.jsx';
 import CommentsItem from '../CommentsItem';
 import FormComment from '../FormComment';
-import FormPost from '../FormPost';
+import FormPost from '../../containers/FormPostContainer';
 
 const Post = ({
   current,
@@ -74,17 +68,4 @@ Post.propTypes = {
   loading: PropTypes.bool.isRequired
 };
 
-const mapStateToProps = state => ({
-  current: state.posts.current,
-  comments: state.posts.comments,
-  loading: state.posts.loading
-});
-
-export default connect(
-  mapStateToProps,
-  {
-    getFullInfo: getPostsWithComments,
-    addComment: addCommentForPost,
-    clear: clearCurrent
-  }
-)(Post);
+export default Post;

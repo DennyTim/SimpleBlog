@@ -9,6 +9,15 @@
   --success-color: #28a745;
 }
 
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar-header {
+  color: #fff;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -141,6 +150,22 @@ li {
 
 .btn:hover {
   opacity: 0.8;
+}
+
+.x-large {
+  margin-top: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+.large {
+  font-family: 'Roboto', sans-serif;
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
 }
 
 @import './home.scss';

@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Posts from '../Posts';
-import Post from '../Post';
+import PostContainer from '../../containers/PostContainer';
+import PostsContainer from '../../containers/PostsContainer';
 import Navbar from '../Layout/Navbar.jsx';
 import Home from '../Pages/Home.jsx';
+import NotFound from '../Pages/NotFound.jsx';
 
 const Routes = () => {
   return (
@@ -11,8 +12,9 @@ const Routes = () => {
       <Navbar />
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route exact path='/posts' component={Posts} />
-        <Route exact path='/post/:id' component={Post} />
+        <Route exact path='/posts' component={PostsContainer} />
+        <Route exact path='/post/:id' component={PostContainer} />
+        <Route component={NotFound} />
       </Switch>
     </Router>
   );

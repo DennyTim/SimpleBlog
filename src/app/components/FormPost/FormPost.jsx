@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { addPost, updatePost } from '../../actions/blogActions';
 
 const FormPost = ({ active, current, setActive, addNewPost, update }) => {
   const [title, setTitle] = useState('');
@@ -104,11 +102,4 @@ FormPost.propTypes = {
   update: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => ({
-  current: state.posts.current
-});
-
-export default connect(
-  mapStateToProps,
-  { addNewPost: addPost, update: updatePost }
-)(FormPost);
+export default FormPost;
