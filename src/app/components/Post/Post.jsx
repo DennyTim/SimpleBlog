@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
@@ -10,6 +10,7 @@ import PostItem from '../PostsItem';
 import Spinner from '../Layout/Spinner.jsx';
 import CommentsItem from '../CommentsItem';
 import FormComment from '../FormComment';
+import FormPost from '../FormPost';
 
 const Post = ({
   current,
@@ -20,6 +21,7 @@ const Post = ({
   clear,
   match
 }) => {
+  const [active, setActive] = useState(false);
   useEffect(() => {
     getFullInfo(match.params.id);
   }, []);
@@ -38,6 +40,15 @@ const Post = ({
     <Fragment>
       <div className='container'>
         <PostItem post={current} />
+        <button
+          className='post-item-btn btn-light'
+          onClick={() => {
+            setActive(true);
+          }}
+        >
+          Edit Post
+        </button>
+        {active ? <FormPost active={active} setActive={setActive} /> : <div />}
         <FormComment addComment={addComment} id={current.id} />
         <ul>
           {comments.length > 0 ? (

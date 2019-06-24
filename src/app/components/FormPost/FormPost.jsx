@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addPost } from '../../actions/blogActions';
+import { addPost, updatePost } from '../../actions/blogActions';
 
-const FormPost = ({ active, current, setActive, addNewPost }) => {
+const FormPost = ({ active, current, setActive, addNewPost, update }) => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 
@@ -41,11 +41,18 @@ const FormPost = ({ active, current, setActive, addNewPost }) => {
     if (!current) {
       addNewPost({ title, body });
       setActive(false);
+    } else {
+      update(current.id, { title, body });
+      setActive(false);
     }
   };
 
   useEffect(() => {
     if (active) {
+      if (current) {
+        setTitle(current.title);
+        setBody(current.body);
+      }
       modalOpen();
     }
   }, [active]);
@@ -93,7 +100,8 @@ FormPost.propTypes = {
   active: PropTypes.bool.isRequired,
   current: PropTypes.object,
   setActive: PropTypes.func.isRequired,
-  addNewPost: PropTypes.func.isRequired
+  addNewPost: PropTypes.func.isRequired,
+  update: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -102,5 +110,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addNewPost: addPost }
+  { addNewPost: addPost, update: updatePost }
 )(FormPost);

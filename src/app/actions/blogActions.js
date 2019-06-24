@@ -7,6 +7,7 @@ import {
   ADD_COMMENT,
   GET_COMMENTS,
   ADD_POST,
+  UPDATE_POST,
   CLEAR_POSTS,
   CLEAR_CURRENT
 } from './types';
@@ -90,6 +91,27 @@ export const addPost = data => async dispatch => {
     );
     dispatch({
       type: ADD_POST,
+      payload: res.data
+    });
+  } catch (err) {
+    dispatch({
+      type: POSTS_ERRORS,
+      payload: {
+        msg: !Object.keys(err).length ? `Could not fetch, received` : err
+      }
+    });
+  }
+};
+
+export const updatePost = (id, data) => async dispatch => {
+  try {
+    setLoading();
+    const res = await axios.put(
+      `https://simple-blog-api.crew.red/posts/${id}`,
+      data
+    );
+    dispatch({
+      type: UPDATE_POST,
       payload: res.data
     });
   } catch (err) {

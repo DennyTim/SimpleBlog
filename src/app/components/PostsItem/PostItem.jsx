@@ -20,16 +20,14 @@ const PostItem = ({ post, postLength = post.body.length }) => {
             postLength < post.body.length ? postLength : post.body.length
           )}...`}
         </p>
-        <div className='post-item-btns'>
-          <button className='post-item-btn btn-light'>Edit Post</button>
-        </div>
       </div>
     </div>
   );
 };
 
 PostItem.propTypes = {
-  post: PropTypes.object
+  post: PropTypes.object,
+  postLength: PropTypes.number
 };
 
 export default PostItem;

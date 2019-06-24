@@ -6,6 +6,7 @@ import {
   GET_COMMENTS,
   ADD_COMMENT,
   ADD_POST,
+  UPDATE_POST,
   CLEAR_CURRENT,
   CLEAR_POSTS
 } from '../actions/types';
@@ -54,6 +55,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         posts: [action.payload, ...state.posts],
+        loading: false
+      }
+    case UPDATE_POST:
+      return {
+        ...state,
+        current: action.payload,
         loading: false
       }
     case SET_LOADING:
