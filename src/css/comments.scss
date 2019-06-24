@@ -1,0 +1,48 @@
+.comments-item {
+  margin: 10px 0;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.comments-item-body {
+  margin-left: 20px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.comments-item-user {
+  border-radius: 50%;
+  width: 60px;
+}
+
+.form-comment {
+  padding: 20px;
+  background: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.form-header {
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #003699;
+}
+
+.form-text {
+  display: block;
+  width: 100%;
+  text-indent: 5px;
+  font-family: 'Roboto', sans-serif;
+  resize: none;
+  font-size: 18px;
+}
+
+.form-btn {
+  font-size: 15px;
+  margin-top: 30px;
+  margin-left: 15px;
+}

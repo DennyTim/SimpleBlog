@@ -21,3 +21,6 @@ env:
 settings:
   react:
     version: '16.6'
+
+rules:
+  import/prefer-default-export: 'off'
