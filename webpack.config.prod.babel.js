@@ -63,12 +63,15 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(png|jpg|gif)$/,
+        loader: 'url-loader'
+      }
     ],
   },
   plugins: [
     new CopyWebpackPlugin([
-      { from: 'src/img', to: 'img' },
-      { from: './src/favicon', to: './favicon' }
+      { from: 'src/img', to: 'img' }
     ]),
     new webpack.SourceMapDevToolPlugin({
       filename: 'js/[name].js.map',
