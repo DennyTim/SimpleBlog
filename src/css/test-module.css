@@ -1,0 +1,11 @@
+.postItem {
+  margin: 10px 0;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  transition: border, box-shadow 0.3s;
+}

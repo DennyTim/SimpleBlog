@@ -38,7 +38,7 @@ module.exports = {
         }],
       },
       {
-        test: /\.(sa|sc|c)ss$/,
+        test: /\.css$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -46,7 +46,36 @@ module.exports = {
           },
           {
             loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              modules: true,
+              localIdentName: '[name]__[local]__[hash:base64:5]',
+              camelCase: true
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              plugins: [
+                autoprefixer,
+              ],
+            },
+          }
+        ],
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
             options: { sourceMap: true },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            },
           },
           {
             loader: 'postcss-loader',

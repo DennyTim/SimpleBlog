@@ -10,7 +10,7 @@ module.exports = {
     main: [
       '@babel/polyfill',
       './src/app/index.js',
-      './src/css/main.scss',
+      './src/css/main.scss'
     ],
   },
   output: {
@@ -37,7 +37,7 @@ module.exports = {
         }],
       },
       {
-        test: /\.(sa|sc|c)ss$/,
+        test: /\.css$/,
         use: [
           {
             loader: 'style-loader',
@@ -45,7 +45,36 @@ module.exports = {
           },
           {
             loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              modules: true,
+              localIdentName: '[name]__[local]__[hash:base64:5]',
+              camelCase: true
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              plugins: [
+                autoprefixer,
+              ],
+            },
+          }
+        ],
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'style-loader',
             options: { sourceMap: true },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            },
           },
           {
             loader: 'postcss-loader',
@@ -58,9 +87,11 @@ module.exports = {
           },
           {
             loader: 'sass-loader',
-            options: { sourceMap: true },
-          },
-        ],
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
       },
       {
         test: /\.(png|gif|jpe?g)$/,

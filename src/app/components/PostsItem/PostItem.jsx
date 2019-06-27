@@ -2,6 +2,7 @@ import React from 'react';
 import Radium from 'radium'; // позволяет инлайн стилям добавлять псевдоклассы и псевдоэлементы
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import styles from '../../../css/test-module.css'; // использование модульной системы
 
 const PostItem = ({ post, postLength = post.body.length }) => {
   const style = {
@@ -14,7 +15,7 @@ const PostItem = ({ post, postLength = post.body.length }) => {
   };
 
   return (
-    <div className='post-item' style={style}>
+    <div className={styles.postItem} style={style}>
       <img
         className='post-item-img'
         src='//www.gravatar.com/avatar/0dcc7d49493b931c241e1433d432087a?s=200&r=pg&d=mm'
