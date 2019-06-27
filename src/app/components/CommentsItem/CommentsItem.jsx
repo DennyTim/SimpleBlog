@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import withErrorBoundary from '../hoc/withErrorBoundary.jsx';
 
 const CommentsItem = ({ comment }) => {
   return (
@@ -18,4 +19,4 @@ CommentsItem.propTypes = {
   comment: PropTypes.object.isRequired
 };
 
-export default CommentsItem;
+export default withErrorBoundary(CommentsItem);
