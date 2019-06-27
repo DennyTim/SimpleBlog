@@ -14,6 +14,11 @@ const PostItem = ({ post, postLength = post.body.length }) => {
     }
   };
 
+  // Check for ErrorBoundary
+  // if (Math.random() > 0.7) {
+  //   throw new Error('Error');
+  // }
+
   return (
     <div className={styles.postItem} style={style}>
       <img
