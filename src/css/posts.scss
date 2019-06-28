@@ -161,6 +161,13 @@
   color: #007bff;
   background-color: #fff;
   border: 1px solid #dee2e6;
+  outline: none;
+}
+
+.page-item:active,
+.page-item:focus {
+  background-color: #007bff;
+  color: #fff;
 }
 
 .page-link:hover {

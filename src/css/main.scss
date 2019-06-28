@@ -65,7 +65,7 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 15px;
+  padding: 7px 7px;
   z-index: 1;
   width: 100%;
   opacity: 0.9;
@@ -76,7 +76,7 @@ li {
   justify-content: flex-end;
 }
 
-.navbar-list a {
+a {
   color: #fff;
   font-size: 18px;
   padding: 0.45rem;
@@ -89,6 +89,11 @@ li {
 
 .navbar .welcome span {
   margin-right: 0.6rem;
+}
+
+.wfm-active {
+  border: 1px solid #28a745;
+  color: #28a745;
 }
 
 .alert {
