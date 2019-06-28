@@ -14,8 +14,8 @@ const Routes = () => {
         <Navbar />
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route exact path='/posts' component={PostsContainer} />
-          <Route exact path='/post/:id' component={PostContainer} />
+          <Route path='/posts' component={PostsContainer} />
+          <Route path='/post/:id' component={PostContainer} />
           <Route component={NotFound} />
         </Switch>
       </Router>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Radium from 'radium'; // позволяет инлайн стилям добавлять псевдоклассы и псевдоэлементы
+// withRouter - теперь доступны history, match, location вне роутера (родительский компонент в роуте)
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from '../../../css/test-module.css'; // использование модульной системы

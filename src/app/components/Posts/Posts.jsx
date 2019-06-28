@@ -5,7 +5,7 @@ import Pagination from './Pagination.jsx';
 import FormPost from '../../containers/FormPostContainer';
 import Spinner from '../Layout/Spinner.jsx';
 
-const Posts = ({ posts, loading, getItems, clear }) => {
+const Posts = ({ posts, loading, getItems, clear, history }) => {
   const [active, setActive] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(3);
@@ -29,11 +29,17 @@ const Posts = ({ posts, loading, getItems, clear }) => {
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
+  const goToHomePage = () => {
+    history.push({
+      pathname: '/'
+    });
+  };
 
   return (
     <Fragment>
       <div className='container'>
         <h2 className='posts-header'>Posts</h2>
+        <button onClick={goToHomePage}>Back to home</button>
         <button
           onClick={() => {
             setActive(true);
@@ -65,7 +71,8 @@ Posts.propTypes = {
   getItems: PropTypes.func.isRequired,
   clear: PropTypes.func.isRequired,
   posts: PropTypes.array.isRequired,
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  history: PropTypes.object.isRequired
 };
 
 export default Posts;

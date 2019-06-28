@@ -9,11 +9,6 @@
   --success-color: #28a745;
 }
 
-a {
-  text-decoration: none;
-  color: #fff;
-}
-
 .navbar-header {
   color: #fff;
 }
@@ -31,7 +26,7 @@ body {
 }
 
 button {
-  margin-top: 10px;
+  margin: 10px 10px;
   border: 1px #9b9b9b solid;
   border-radius: 20px;
   width: 140px;
@@ -49,7 +44,7 @@ button {
 }
 
 a {
-  color: var(--primary-color);
+  color: var(--success-color);
   text-decoration: none;
 }
 
@@ -65,7 +60,7 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 7px 7px;
+  padding: 15px 15px;
   z-index: 1;
   width: 100%;
   opacity: 0.9;
@@ -76,11 +71,10 @@ li {
   justify-content: flex-end;
 }
 
-a {
-  color: #fff;
+a.wfm-active {
   font-size: 18px;
   padding: 0.45rem;
-  margin: 0 0.25rem;
+  margin: 0 0.55rem;
 }
 
 .navbar a:hover {
